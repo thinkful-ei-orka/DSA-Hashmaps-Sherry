@@ -40,9 +40,7 @@ const WhatDoesThisDo = function(){
   let str2 = 'Hello World.';
   let map1 = new HashMap();
   map1.set(str1,10);
-  console.log('first map1', map1);
   map1.set(str2,20);
-  console.log('second map1', map1);
   let map2 = new HashMap();
   let str3 = str1;
   let str4 = str2;
@@ -51,8 +49,9 @@ const WhatDoesThisDo = function(){
 
   console.log(map1.get(str1));
   console.log(map2.get(str3));
-}
-WhatDoesThisDo()
+};
+
+// WhatDoesThisDo();
 //What does this output?
-//It outputs 10, 20
+//It outputs 20, 10
 
