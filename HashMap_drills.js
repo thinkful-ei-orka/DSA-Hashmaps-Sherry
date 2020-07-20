@@ -1,4 +1,5 @@
 const HashMap = require('./HashMap');
+const { HashMap_SepChain } = require('./HashMapSepChain');
 
 
 function main() {
@@ -130,4 +131,33 @@ function anagramGrouping(arr) {
   return ans;
 }
 
-console.log(anagramGrouping(['east','cars', 'acre', 'arcs', 'teas', 'eats', 'race']));
+// console.log(anagramGrouping(['east','cars', 'acre', 'arcs', 'teas', 'eats', 'race']));
+
+//7 Separate Chaining
+
+function lotr() {
+  let lotr = new HashMap_SepChain;
+  HashMap_SepChain.MAX_LOAD_RATIO = 0.5;
+  HashMap_SepChain.SIZE_RATIO = 3;
+
+  lotr.set('Hobbit', 'Bilbo');
+  console.log(lotr);
+  lotr.set('Hobbit', 'Frodo');
+  lotr.set('Wizard', 'Gandalf');
+  lotr.set('Human', 'Aragorn');
+  lotr.set('Elf', 'Legalos');
+  lotr.set('Maiar', 'The Necromancer');
+  lotr.set('Maiar', 'Sauron');
+  lotr.set('RingBearer', 'Gollum');
+  lotr.set('LadyOfLight', 'Galadriel');
+  lotr.set('HalfElven', 'Arwen');
+  lotr.set('Ent', 'Treebeard');
+  
+
+  // console.log(lotr);
+
+  // console.log(lotr.get('Maiar'));
+  // console.log(lotr.get('Hobbit'));
+}
+
+lotr();
