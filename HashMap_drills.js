@@ -62,3 +62,17 @@ const WhatDoesThisDo = function(){
 
 //4 Remove Duplicates
 
+function removeDuplicates(string) {
+  const hashDuplicates = new Map();
+  let newString = '';
+
+  string.split('').forEach(letter => {
+    if (!hashDuplicates.has(letter)) {
+      hashDuplicates.set(letter, '');
+      newString += letter;
+    }
+  });
+  // console.log(newString);
+}
+
+removeDuplicates('google all that you think can think of');
