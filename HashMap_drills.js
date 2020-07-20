@@ -76,3 +76,58 @@ function removeDuplicates(string) {
 }
 
 removeDuplicates('google all that you think can think of');
+
+function palindrome(string) {
+  //a palindrome has either 1 or an even # of occurences of a letter
+  let strObj = {};
+  let strsplit = string.split('');
+  strsplit.forEach(char => {
+    if(char in strObj) {
+      strObj[char] = strObj[char] + 1;
+    } else {
+      strObj[char] = 1;
+    }
+  });
+  let count = 0;
+  for(const [key, value] of Object.entries(strObj)) {
+    if(value === 1) {
+      count ++;
+    }
+    if (value % 2 === 1 && value !==1) {
+      return false;
+    }
+  }
+  if(count > 1) {
+    return false;
+  }
+  return true;
+}
+
+// console.log(palindrome('acecarr')); //T
+// console.log(palindrome('north')); //F
+
+//6. Anagram grouping
+//Given ['east','cars', 'acre', 'arcs', 'teas', 'eats', 'race']
+//will get [['east', 'teas', 'eats'], ['cars', 'arcs'], ['acre', 'race']]
+function anagramGrouping(arr) {
+  let anagramMap = new Map();
+  for (let i = 0; i <arr.length; i++) {
+    let splitArr = arr[i].split('').sort().join('');
+    if(!anagramMap.has(splitArr)) {
+      anagramMap.set(splitArr, [arr[i]]);
+    } else {
+      anagramMap.set(anagramMap.get(splitArr), anagramMap.get(splitArr).push(arr[i]));
+    }
+  }
+
+  let ans = [];
+  Array.from(anagramMap.values()).forEach(e => {
+    let eType = typeof(e);
+    if(eType === 'object') {
+      ans.push(e);
+    }
+  });
+  return ans;
+}
+
+console.log(anagramGrouping(['east','cars', 'acre', 'arcs', 'teas', 'eats', 'race']));
